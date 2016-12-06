@@ -16,6 +16,10 @@
   color: #aaa;
 }
 
-.usermotto {
-  margin-top: 200px;
+.username {
+  width: 100%;
+}
+
+.userpasswd {
+  width: 100%;
 }

@@ -1,0 +1,13 @@
+<view class="container">
+    <text>SS信息</text>
+    <text>port: {{ssport}}</text>
+    <text>pass: {{sspass}}</text>
+    <text>上次使用时间: {{sstime}}</text>
+    
+    <text>总流量: {{transfer_all}}</text>
+    <text>已使用流量: {{transfer}}</text>
+    <text>剩余流量: {{transfer_unused}}</text>
+
+    <button bindtap="bindCheckinTap">签到</button>
+    <text>{{checkin_msg}}</text>
+</view>

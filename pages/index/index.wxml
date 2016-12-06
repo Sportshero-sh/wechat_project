@@ -4,7 +4,13 @@
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class="username">
+    <input type="text" value="{{username}}" bindinput="bindUserInput"/>
+  </view>
+  <view class="userpasswd">
+    <input type="text" value="{{passwd}}" bindinput="bindPasswdInput"/>
+  </view>
+  <view>
+    <button bindtap="bindButtonTap" >Login</button>
   </view>
 </view>

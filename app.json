@@ -1,6 +1,9 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/userInfo/userInfo",
+    "pages/nodes/nodes",
+    "pages/nodeInfo/nodeInfo",
     "pages/logs/logs"
   ],
   "window":{
@@ -8,5 +11,20 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle":"black"
-  }
+  },
+   "tabBar": {
+      "list": [{
+        "pagePath": "pages/index/index",
+        "text": "login"
+       },{
+        "pagePath": "pages/userInfo/userInfo",
+        "text": "user"
+       },{
+        "pagePath": "pages/nodes/nodes",
+        "text": "nodes"
+       },{
+        "pagePath": "pages/logs/logs",
+        "text": "logs"
+       }]
+    }
 }
