@@ -1,14 +1,1 @@
-{
-   "tabBar": {
-      "list": [{
-        "pagePath": "pages/index/index",
-        "text": "first"
-       },{
-        "pagePath": "pages/userInfo/userInfo",
-        "text": "2nd"
-       },{
-        "pagePath": "pages/logs/logs",
-        "text": "3rd"
-       }]
-    }
-}
+{}

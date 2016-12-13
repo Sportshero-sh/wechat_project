@@ -1,10 +1,12 @@
 //index.js
 //获取应用实例
-var app = getApp()
+import {SS_SERVER_URL}  from '../../utils/constants.js'
+
+let app = getApp()
 Page({
   data: {
     username: 'Rainbow',
-    passwd: 'Idontknow',
+    passwd: '00000000',
     userInfo: {}
   },
   //事件处理函数
@@ -27,10 +29,10 @@ Page({
     console.log(this.data.username)
     console.log(this.data.passwd)
     wx.request({
-      url: 'http://sportshero.mobi:8090/user/_wxlogin.php',
+      url: SS_SERVER_URL+'/user/_wxlogin.php',
       data: {
-        username: 'rainbow',
-        passwd: 'Idontknow',
+        username: this.data.username,
+        passwd: this.data.passwd,
         remember_me: 'week'
       },
       method: 'GET', 

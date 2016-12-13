@@ -1,5 +1,7 @@
 //logs.js
-var app = getApp()
+import {SS_SERVER_URL}  from '../../utils/constants.js'
+
+let app = getApp()
 Page({
     data: {
         sspass: '',
@@ -12,7 +14,7 @@ Page({
     },
     bindCheckinTap: function () {
         wx.request({
-            url: 'http://sportshero.mobi:8090/user/_wxcheckin.php',
+            url: SS_SERVER_URL + '/user/_wxcheckin.php',
             data: {
                 uid: app.globalData.uid
             },
@@ -38,7 +40,7 @@ Page({
 
     onLoad: function () {
         wx.request({
-            url: 'http://sportshero.mobi:8090/user/_wxuser.php',
+            url: SS_SERVER_URL+'/user/_wxuser.php',
             data: {
                 uid: app.globalData.uid
             },

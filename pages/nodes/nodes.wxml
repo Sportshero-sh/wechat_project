@@ -1,3 +1,18 @@
-<view class="container">
-    <text>this is nodes</text>
-</view>
+<swiper indicator-dots="true" bindchange="handleChange">
+  <block wx:for="{{nodes}}" wx:for-item="node" wx:key="node_id">
+    <swiper-item>
+     <view class="vol-card">
+        <view class="img-box">
+            <canvas bindtap="previewImg" hidden="{{canvasHidden}}" style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="mycanvas"/>
+            <!--<image bindtap="previewImg" mode="scaleToFill" src="{{imagePath}}"></image>-->
+        </view>
+      <view class="vol-meta">
+          <text class="vol-number">ss://{{node.node_method}}:{{pass}}@{{node.node_server}}: {{port}}</text>
+        </view>
+        <view class="vol-content">
+          <text class="vol-content-text">{{node.node_info}}</text>
+        </view>
+    </view>
+     </swiper-item>
+  </block>
+</swiper>
