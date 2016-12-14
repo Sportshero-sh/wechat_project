@@ -1,6 +1,15 @@
-.vol-swiper {
-  height: 50%;
+.vol-container {
+  height: 100%;
+  border-top: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+  box-sizing: border-box;
+  background-color: lightyellow;
 }
+
+.vol-swiper {
+   height: 100%;
+  background-color: pink;
+ }
 
 .vol-swiper-item {
   padding: 25rpx;

@@ -1,1 +1,17 @@
-{}
+{
+    "tabBar": {
+      "list": [{
+        "pagePath": "pages/index/index",
+        "text": "login"
+       },{
+        "pagePath": "pages/userInfo/userInfo",
+        "text": "user"
+       },{
+        "pagePath": "pages/nodes/nodes",
+        "text": "nodes"
+       },{
+        "pagePath": "pages/logs/logs",
+        "text": "logs"
+       }]
+    }
+}

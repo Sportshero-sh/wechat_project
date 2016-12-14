@@ -1,6 +1,7 @@
 //logs.js
 import {SS_SERVER_URL}  from '../../utils/constants.js'
 var QR = require("../../utils/qrcode.js");
+var Base64 = require('../../utils/base64.js');
 
 let app = getApp()
 Page({
@@ -9,9 +10,9 @@ Page({
     imagePath:'',
     nodes: [],
     pass: '',
+    current: 0,
     port: ''
   },
-
   handleChange: function(){
   },
  //适配不同屏幕大小的canvas
@@ -70,6 +71,7 @@ Page({
     wx.request({
         url: SS_SERVER_URL+'/user/_wxnode.php',
         data: {
+            uid: app.globalData.uid
         },
         method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
         // header: {}, // 设置请求的 header
@@ -82,8 +84,14 @@ Page({
                 pass: res.data.pass,
                 port: res.data.port
             })
-          var size = this.setCanvasSize();//动态设置画布大小
-          var initUrl = "ss://"+this.data.nodes[0].method+":"+this.data.pass;
+          let size = this.setCanvasSize();//动态设置画布大小
+          let ssURL = this.data.nodes[0].node_method 
+              + ":" + this.data.pass 
+              + "@" + this.data.nodes[0].node_server
+              + ":" + this.data.port;
+          let initUrl = "ss://"+Base64.encode(ssURL);
+          console.log(ssURL);
+          console.log(initUrl);
           this.createQrCode(initUrl,"mycanvas",size.w,size.h);       },
         fail: function () {
             // fail

@@ -3,7 +3,6 @@
     "pages/index/index",
     "pages/userInfo/userInfo",
     "pages/nodes/nodes",
-    "pages/nodeInfo/nodeInfo",
     "pages/logs/logs"
   ],
   "window":{
