@@ -13,8 +13,16 @@ Page({
     current: 0,
     port: ''
   },
-  handleChange: function(){
-  },
+  handleChange: function(e){
+    let current = e.detail.current
+    let volsLength = this.data.nodes.length
+
+    if (current === volsLength) {
+      this.setData({
+        current: volsLength
+      })
+    }
+ },
  //适配不同屏幕大小的canvas
   setCanvasSize:function(){
     var size={};
