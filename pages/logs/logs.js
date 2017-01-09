@@ -19,9 +19,9 @@ Page({
           console.log(res.data)
           that.setData({
             matchs: (res.data).map(function (match) {
-              match.HomeTeamName = DataModule.getTeamByID(match.HomeTeamId).teamName;
+              match.HomeTeamName = match.HomeTeamName;
               match.HomeTeamIcon = 'http://fhmainstorage.blob.core.windows.net/fhteamimages/' + match.HomeTeamId + '.png';
-              match.AwayTeamName = DataModule.getTeamByID(match.AwayTeamId).teamName;
+              match.AwayTeamName = match.AwayTeamName;
               match.AwayTeamIcon = 'http://fhmainstorage.blob.core.windows.net/fhteamimages/' + match.AwayTeamId + '.png';
               match.HomePredictions = match.HomePredictions;
               match.DrawPredictions = match.DrawPredictions;
