@@ -1,8 +1,61 @@
 .log-list {
   display: flex;
   flex-direction: column;
-  padding: 40rpx;
+  background: url(../../resources/guide-bg.png);
+  background-position: left top;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  justify-content: center;
 }
+
+.match-content {
+  flex-direction: row;
+}
+
 .log-item {
-  margin: 10rpx;
+  margin: 0rpx;
+}
+
+.league-text {
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0.2px;
+  text-align: left;
+  color: #5b5b5b;
+}
+.matchtime-text {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0.2px;
+  text-align: left;
+  color: #999999;
+}
+
+.firstRowSecondLine {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px; 
+  margin-bottom: 5px;
+  /*margin-Horizontal: 15px;*/
+}
+.separator {
+	height: 1px;
+  background-color: #eeeeee;
+  border-width: 1px;
+  border-color: #eeeeee;
+  align-self: stretch;
+}
+.predictionPrecentage {
+	flex:1;
+	align-items:center;
+	justify-content:center;
+	flex-direction: row;
 }

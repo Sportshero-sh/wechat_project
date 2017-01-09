@@ -1,7 +1,64 @@
 <!--logs.wxml-->
 <view class="container log-list">
-  <block wx:for="{{matchs}}" wx:for-item="match">
-    <text class="log-item">{{match.LeagueName}}</text>
-    <text class="log-item">{{match.HomeTeamName}} vs {{match.AwayTeamName}}</text>
-  </block>
+	<block wx:for="{{matchs}}" wx:for-item="match">
+		<view style="height:20px"/>
+		<view style="background-color: #ffffff; border-radius: 5px; margin-left: 20px; margin-right: 20px; align-self: stretch;align-items: center">
+			<view class="container firstRowSecondLine" >
+				<view style="flex-direction: column; justify-content: center; align-items: center; flex:5;display: flex">
+					<image style="width: 120px; height: 120px; align-self: center" mode="aspectFit" src="{{match.HomeTeamIcon}}" />
+					<text style="align-self: center; flex:1">
+						{{match.HomeTeamName}}
+					</text>
+				</view>
+				<view  style="flex:1; align-items: center;display: flex">
+					<text style="align-self: center;display: flex">
+						VS
+					</text>
+				</view>
+				<view style="flex-direction: column; justify-content: center;align-items: center; flex:5;display: flex">
+					<image style="width: 120px; height: 120px;align-self: center" mode="aspectFit" src="{{match.AwayTeamIcon}}" />
+					<text style="align-self: center; flex:1">
+						{{match.AwayTeamName}}
+					</text>
+				</view>
+			</view>	
+			<view class="container separator"/>		
+			<view class="container firstRowSecondLine" >
+				<View class="container predictionPrecentage">
+					<Text style="font-size: 25; color:#002a4e;">
+						{{match.HomePredictions * 100}} %
+					</Text>
+					<Text style="font-size: 25; color:#f68a1e;">
+						Win
+					</Text>
+				</View>
+				<View class="container predictionPrecentage">
+					<Text style="font-size: 25; color:#002a4e;">
+						{{match.DrawPredictions * 100}} %
+					</Text>
+					<Text style="font-size: 25; color:#f68a1e;">
+						Draw
+					</Text>
+				</View>
+				<View class="container predictionPrecentage">
+					<Text style="font-size: 25; color:#002a4e;">
+						{{match.AwayPredictions * 100}} %
+					</Text>
+					<Text style="font-size: 25; color:#f68a1e;">
+						Lose
+					</Text>
+				</View>
+			</view>
+			<view class="container separator"/>		
+			<view class="container firstRowSecondLine">
+				<text class="container league-text">{{match.LeagueName}}</text>
+				<text class="container matchtime-text">{{match.StartTime}}</text>
+			</view>
+			<view style="background-color: #003161; align-self: stretch;border-radius: 5px; height: 75px; justify-content: center; align-items: center;display: flex;">
+				<button style="width: 200.9px;border-radius: 8px;	background-color: #ef5421; margin-top: 5px; margin-bottom: 5px;font-size: 15">
+						Predict Match
+				</button>
+			</view>
+		</view>		
+	</block>
 </view>

@@ -20,7 +20,16 @@ Page({
           that.setData({
             matchs: (res.data).map(function (match) {
               match.HomeTeamName = DataModule.getTeamByID(match.HomeTeamId).teamName;
+              match.HomeTeamIcon = 'http://fhmainstorage.blob.core.windows.net/fhteamimages/' + match.HomeTeamId + '.png';
               match.AwayTeamName = DataModule.getTeamByID(match.AwayTeamId).teamName;
+              match.AwayTeamIcon = 'http://fhmainstorage.blob.core.windows.net/fhteamimages/' + match.AwayTeamId + '.png';
+              match.HomePredictions = match.HomePredictions;
+              match.DrawPredictions = match.DrawPredictions;
+              match.AwayPredictions = match.AwayPredictions;
+              match.StartTime = match.StartTime;
+              match.LeagueName = match.LeagueName;
+              match.StartTime = util.convertStringToTime(match.StartTime, 'dd MMMM yyyy, hh:mm');
+
               return match;
           }),
             stepCount: that.data.stepCount + 1
