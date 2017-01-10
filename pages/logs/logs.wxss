@@ -8,54 +8,103 @@
   background-size: 100% 100%;
   justify-content: center;
 }
-
-.match-content {
-  flex-direction: row;
-}
-
 .log-item {
-  margin: 0rpx;
+  background-color: #ffffff; 
+  border-radius: 5rpx; 
+  margin-left: 20rpx; 
+  margin-right: 20rpx; 
+  margin-top: 20rpx; 
+  margin-bottom:20rpx; 
+  align-self: stretch;
+  align-items: center
 }
-
-.league-text {
-  font-family: Roboto;
-  font-size: 18px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  letter-spacing: 0.2px;
-  text-align: left;
-  color: #5b5b5b;
-}
-.matchtime-text {
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  letter-spacing: 0.2px;
-  text-align: left;
-  color: #999999;
-}
-
-.firstRowSecondLine {
+.row {
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 5px; 
-  margin-bottom: 5px;
-  /*margin-Horizontal: 15px;*/
+}
+.row1{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 205rpx;
+}
+.row2{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 55rpx;
+}
+.row3{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 55rpx;
+}
+.team-icon-container{
+  display: flex;
+  flex:5;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;
+}
+.vs-text-container{
+  flex:1; 
+  align-items: center;
+  display: flex;
+}
+.vs-text{
+  flex:1; 
+  align-self: center;
+  font-size: 32rpx;
+  color: #cccccc;
+  text-align: center;
+}
+.team-name-text {
+  flex:1;
+  font-size: 25rpx;
+  text-align: center;
+}
+.team-icon {
+  width: 120rpx; 
+  height: 120rpx;
+}
+.league-text {
+  display: flex;
+  flex-direction: row;
+  font-family: Roboto;
+  font-size: 21rpx;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0.2rpx;
+  text-align: center;
+  color: #5b5b5b;
+  justify-content: center;
+  align-items: center;
+}
+.matchtime-text {
+  font-family: Roboto;
+  font-size: 18rpx;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0.2rpx;
+  text-align: center;
+  color: #999999;
 }
 .separator {
-	height: 1px;
+	height: 2rpx;
   background-color: #eeeeee;
-  border-width: 1px;
-  border-color: #eeeeee;
   align-self: stretch;
 }
 .predictionPrecentage {
-	flex:1;
+  display: flex;
+  flex-direction: row;
 	align-items:center;
 	justify-content:center;
-	flex-direction: row;
 }
