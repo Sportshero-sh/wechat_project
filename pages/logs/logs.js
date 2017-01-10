@@ -91,6 +91,7 @@ Page({
           })
     }});
   },
+<<<<<<< HEAD
 
   enterMatchCenter: function(event) {
       console.log(event);
@@ -100,4 +101,9 @@ Page({
       url: '../matchcenter/matchcenter?matchID=' + p
     });
   },
+=======
+  onTeamIconError: function(e){
+    console.log(e);
+  }
+>>>>>>> 964ec6bd58265225dc82d13ade9cdfa587297802
 })
