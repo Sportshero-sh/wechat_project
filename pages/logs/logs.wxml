@@ -1,10 +1,10 @@
 <!--logs.wxml-->
 <view class="container log-list">
-	<block wx:for="{{matchs}}" wx:for-item="match">
+	<block wx:for="{{matchs}}" wx:for-index="index" wx:for-item="match">
 		<view class="log-item">
 			<view class="row1" >
 				<view class="team-icon-container">
-					<image class="team-icon" mode="aspectFit" src="{{match.HomeTeamIcon}}" />
+					<image class="team-icon" mode="aspectFit" src="{{match.HomeTeamIcon}}" binderror="onTeamIconError"/>
 					<text class="team-name-text">
 						{{match.HomeTeamName}}
 					</text>
@@ -24,26 +24,26 @@
 			<view class="separator"/>		
 			<view class="row2" >
 				<View class="predictionPrecentage">
-					<Text style="font-size: 25rpx; color:#002a4e;text-align:center;">
+					<Text class="prediction-text">
 						{{match.HomePredictions * 100}} %
 					</Text>
-					<Text style="font-size: 25rpx; color:#f68a1e;">
+					<Text class="red-text">
 						Win
 					</Text>
 				</View>
 				<View class="predictionPrecentage">
-					<Text style="font-size: 25rpx; color:#002a4e;">
+					<Text class="prediction-text">
 						{{match.DrawPredictions * 100}} %
 					</Text>
-					<Text style="font-size: 25rpx; color:#f68a1e;">
+					<Text class="red-text">
 						Draw
 					</Text>
 				</View>
 				<View class="predictionPrecentage">
-					<Text style="font-size: 25rpx; color:#002a4e;">
+					<Text class="prediction-text">
 						{{match.AwayPredictions * 100}} %
 					</Text>
-					<Text style="font-size: 25rpx; color:#f68a1e;">
+					<Text class="red-text">
 						Lose
 					</Text>
 				</View>

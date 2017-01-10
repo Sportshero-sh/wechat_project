@@ -21,8 +21,10 @@ Page({
             matchs: (res.data).map(function (match) {
               match.HomeTeamName = match.HomeTeamName;
               match.HomeTeamIcon = 'http://fhmainstorage.blob.core.windows.net/fhteamimages/' + match.HomeTeamId + '.png';
+              match.HomeIconExist = true;
               match.AwayTeamName = match.AwayTeamName;
               match.AwayTeamIcon = 'http://fhmainstorage.blob.core.windows.net/fhteamimages/' + match.AwayTeamId + '.png';
+              match.AwayIconExist = true;
               match.HomePredictions = match.HomePredictions;
               match.DrawPredictions = match.DrawPredictions;
               match.AwayPredictions = match.AwayPredictions;
@@ -97,4 +99,7 @@ Page({
           })
     }});
   },
+  onTeamIconError: function(e){
+    console.log(e);
+  }
 })
