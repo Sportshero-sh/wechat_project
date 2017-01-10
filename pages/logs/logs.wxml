@@ -4,7 +4,7 @@
 		<text class="head-text">Sportshero Matches</text>
 	</view>
 	<block wx:for="{{matchs}}" wx:for-index="index" wx:for-item="match">
-		<view class="log-item">
+		<view class="log-item" bindtap="enterMatchCenter" id="{{match.Id}}">
 			<view class="row1" >
 				<view class="team-icon-container">
 					<image class="team-icon" mode="aspectFit" src="{{match.HomeTeamIcon}}" />
@@ -81,6 +81,6 @@
 				</view>
 					
 			</view>
-		</view>		
+		</view>	
 	</block>
 </view>

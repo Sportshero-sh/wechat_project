@@ -19,15 +19,8 @@ Page({
           console.log(res.data)
           that.setData({
             matchs: (res.data).map(function (match) {
-              match.HomeTeamName = match.HomeTeamName;
               match.HomeTeamIcon = 'http://fhmainstorage.blob.core.windows.net/fhteamimages/' + match.HomeTeamId + '.png';
-              match.AwayTeamName = match.AwayTeamName;
               match.AwayTeamIcon = 'http://fhmainstorage.blob.core.windows.net/fhteamimages/' + match.AwayTeamId + '.png';
-              match.HomePredictions = match.HomePredictions;
-              match.DrawPredictions = match.DrawPredictions;
-              match.AwayPredictions = match.AwayPredictions;
-              match.StartTime = match.StartTime;
-              match.LeagueName = match.LeagueName;
               match.StartTime = util.convertStringToTime(match.StartTime, 'dd MMMM yyyy, hh:mm');
 
               return match;
@@ -54,9 +47,11 @@ Page({
             console.log(res.data)
 
             var list = (res.data).map(function (match) {
-                match.HomeTeamName = DataModule.getTeamByID(match.HomeTeamId).teamName;
-                match.AwayTeamName = DataModule.getTeamByID(match.AwayTeamId).teamName;
-                return match;
+                 match.HomeTeamIcon = 'http://fhmainstorage.blob.core.windows.net/fhteamimages/' + match.HomeTeamId + '.png';
+                  match.AwayTeamIcon = 'http://fhmainstorage.blob.core.windows.net/fhteamimages/' + match.AwayTeamId + '.png';
+                  match.StartTime = util.convertStringToTime(match.StartTime, 'dd MMMM yyyy, hh:mm');
+
+                  return match;
             });
 
 
@@ -66,7 +61,6 @@ Page({
           })
     }});
   },
-
   onReachBottom: function() {
     if (this.data.stepCount == 0)
       return;
@@ -96,6 +90,14 @@ Page({
               isFetching:false,
           })
     }});
+  },
+  enterMatchCenter: function(event) {
+      console.log(event);
+      var p = event.currentTarget.id;
+
+    wx.navigateTo({
+      url: '../matchcenter/matchcenter?matchID=' + p
+    });
   },
   onTeamIconError: function(e){
     console.log(e);
