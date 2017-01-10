@@ -1,7 +1,7 @@
 <!--logs.wxml-->
 <view class="container log-list">
 	<block wx:for="{{matchs}}" wx:for-item="match">
-		<view class="log-item">
+		<view class="log-item" bindtap="enterMatchCenter" id="{{match.Id}}">
 			<view class="row1" >
 				<view class="team-icon-container">
 					<image class="team-icon" mode="aspectFit" src="{{match.HomeTeamIcon}}" />
@@ -62,6 +62,6 @@
 						Predict Match
 				</button>
 			</view>
-		</view>		
+		</view>	
 	</block>
 </view>
