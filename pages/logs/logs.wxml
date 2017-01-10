@@ -1,10 +1,13 @@
 <!--logs.wxml-->
 <view class="container log-list">
+	<view class="head" hover="{{false}}">
+		<text class="head-text">Sportshero Matches</text>
+	</view>
 	<block wx:for="{{matchs}}" wx:for-index="index" wx:for-item="match">
 		<view class="log-item">
 			<view class="row1" >
 				<view class="team-icon-container">
-					<image class="team-icon" mode="aspectFit" src="{{match.HomeTeamIcon}}" binderror="onTeamIconError"/>
+					<image class="team-icon" mode="aspectFit" src="{{match.HomeTeamIcon}}" />
 					<text class="team-name-text">
 						{{match.HomeTeamName}}
 					</text>
@@ -57,10 +60,26 @@
 					{{match.StartTime}}
 				</text>
 			</view>
-			<view style="background-color: #003161; align-self: stretch;border-radius: 5rpx; height: 75rpx; justify-content: center; align-items: center;display: flex;">
-				<button style="width: 200rpx;border-radius: 8rpx;	background-color: #ef5421; margin-top: 5rpx; margin-bottom: 5rpx;font-size:15rpx">
+			<view class="row4">
+				<view class="available-predict-container">
+					<view class="available-predict-count-container">
+						<block wx:if="{{match.PredictionsPlayed < match.PredictionsAvailable}}">
+							<text class="light-blue-text">{{match.PredictionsPlayed}}</text>
+						</block>
+						<block wx:if="{{match.PredictionsPlayed == match.PredictionsAvailable}}">
+							<text class="red-text">{{match.PredictionsPlayed}} </text>
+						</block>
+						<text class="slash">/</text>
+						<text class="red-text">{{match.PredictionsAvailable}}</text>
+					</view>
+					<text class="red-text">predicted</text>
+				</view>
+				<view class="predict-btn-container">
+					<button class="predict-btn">
 						Predict Match
-				</button>
+					</button>
+				</view>
+					
 			</view>
 		</view>		
 	</block>
