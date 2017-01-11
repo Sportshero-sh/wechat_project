@@ -1,7 +1,7 @@
 .log-list {
   display: flex;
   flex-direction: column;
-  background: url(../../resources/guide-bg.png);
+  background: url(http://fhmainstorage.blob.core.windows.net/fhteamimages/guide-bg.png);
   background-position: left top;
   background-attachment: fixed;
   background-repeat: no-repeat;

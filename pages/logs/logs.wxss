@@ -13,7 +13,7 @@
 .log-list {
   display: flex;
   flex-direction: column;
-  background: url(../../resources/guide-bg.png);
+  background: url(http://fhmainstorage.blob.core.windows.net/fhteamimages/guide-bg.png);
   background-position: left top;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -45,6 +45,7 @@
   align-items: center;
   justify-content: space-around;
   height: 205rpx;
+  border-bottom: 2rpx solid #eeeeee;
 }
 .row2{
   display: flex;
@@ -52,6 +53,7 @@
   justify-content: space-around;
   align-items: center;
   height: 55rpx;
+  border-bottom: 2rpx solid #eeeeee;
 }
 .row3{
   display: flex;
@@ -77,7 +79,9 @@
   align-items: center;
 }
 .vs-text-container{
-  flex:1; 
+  flex:1;
+  flex-direction: column;
+  justify-content: center; 
   align-items: center;
   display: flex;
 }
@@ -105,16 +109,18 @@
   letter-spacing: 0.2rpx;
   text-align: center;
   color: #5b5b5b;
+  padding-bottom: 17rpx;
 }
 .matchtime-text {
   font-family: Roboto;
-  font-size: 18rpx;
+  font-size: 21rpx;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
   letter-spacing: 0.2rpx;
   text-align: center;
   color: #999999;
+  padding-bottom: 17rpx;
 }
 .separator {
 	height: 2rpx;
@@ -126,6 +132,7 @@
   flex-direction: row;
 	align-items:center;
 	justify-content:center;
+  height: 55rpx;
 }
 .red-text{
   font-size: 25rpx; 
@@ -138,8 +145,13 @@
 .prediction-text{
   font-size: 25rpx; 
   color:#002a4e;
+  padding-bottom: 15rpx;
 }
-
+.win-text{
+  font-size: 25rpx; 
+  color:#f68a1e;
+  padding-bottom: 15rpx;
+}
 .available-predict-container{
   flex : 1;
   display: flex;
@@ -161,7 +173,7 @@
   display: flex;
 }
 .predict-btn{
-  width: 220rpx;
+  width: 250rpx;
   height: 55rpx;
   display: flex;
   border-radius: 8rpx;	

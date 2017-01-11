@@ -23,35 +23,33 @@
 						{{match.AwayTeamName}}
 					</text>
 				</view>
-			</view>	
-			<view class="separator"/>		
+			</view>			
 			<view class="row2" >
 				<View class="predictionPrecentage">
 					<Text class="prediction-text">
 						{{match.HomePredictions * 100}} %
 					</Text>
-					<Text class="red-text">
-						Win
+					<Text class="win-text">
+						胜利
 					</Text>
 				</View>
 				<View class="predictionPrecentage">
 					<Text class="prediction-text">
 						{{match.DrawPredictions * 100}} %
 					</Text>
-					<Text class="red-text">
-						Draw
+					<Text class="win-text">
+						平局
 					</Text>
 				</View>
 				<View class="predictionPrecentage">
 					<Text class="prediction-text">
 						{{match.AwayPredictions * 100}} %
 					</Text>
-					<Text class="red-text">
-						Lose
+					<Text class="win-text">
+						失败
 					</Text>
 				</View>
-			</view>
-			<view class="separator"/>		
+			</view>	
 			<view class="row3">
 				<text class="league-text">
 					{{match.LeagueName}}
@@ -72,11 +70,11 @@
 						<text class="slash">/</text>
 						<text class="red-text">{{match.PredictionsAvailable}}</text>
 					</view>
-					<text class="red-text">predicted</text>
+					<text class="red-text">已预测</text>
 				</view>
 				<view class="predict-btn-container">
 					<button class="predict-btn">
-						Predict Match
+						猜 猜 看
 					</button>
 				</view>
 					
