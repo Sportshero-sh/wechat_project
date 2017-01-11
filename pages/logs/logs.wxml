@@ -27,7 +27,7 @@
 			<view class="row2" >
 				<View class="predictionPrecentage">
 					<view class="prediction-text">
-						{{match.HomePredictions * 100}} %
+						{{match.HomePredictionsRate}} %
 					</view>
 					<view class="win-text">
 						胜利
@@ -35,7 +35,7 @@
 				</View>
 				<View class="predictionPrecentage">
 					<view class="prediction-text">
-						{{match.DrawPredictions * 100}} %
+						{{match.DrawPredictionsRate}} %
 					</view>
 					<view class="win-text">
 						平局
@@ -43,10 +43,10 @@
 				</View>
 				<view class="predictionPrecentage">
 					<view class="prediction-text">
-						{{match.AwayPredictions * 100}} %
+						{{match.AwayPredictionsRate}} %
 					</view>
 					<view class="win-text">
-						失败
+						胜利
 					</view>
 				</view>
 			</view>	

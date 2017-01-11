@@ -18,12 +18,7 @@ Page({
       success: function (res) {
         console.log(res.data)
         that.setData({
-          matchs: (res.data).map(function (match) {
-            match.HomeTeamIcon = 'http://fhmainstorage.blob.core.windows.net/fhteamimages/' + match.HomeTeamId + '.png';
-            match.AwayTeamIcon = 'http://fhmainstorage.blob.core.windows.net/fhteamimages/' + match.AwayTeamId + '.png';
-            match.StartTime = util.convertStringToTime(match.StartTime, 'dd MMMM yyyy, hh:mm');
-            return match;
-          }),
+          matchs: (res.data).map(that.composeMatch),
           stepCount: that.data.stepCount + 1,
           isFetching: false,
         })
@@ -38,7 +33,7 @@ Page({
 
     this.setData({ isFetching: true });
     wx.request({
-      url: 'https://fhapi-dev1.cloudapp.net/api/games/upcomingNext?sportId=1&number=25&step=' + that.data.stepCount,
+      url: 'https://fhapi-dev1.cloudapp.net/api/games/upcomingNext?sportId=1&number=25&step=' + 1,
       method: 'GET',
       header: {
         'Authorization': 'FH-Token 935b6dfb-e795-48a8-be9c-11bd9e8c89dc'
@@ -46,18 +41,13 @@ Page({
       success: function (res) {
         console.log(res.data)
 
-        var list = (res.data).map(function (match) {
-          match.HomeTeamIcon = 'http://fhmainstorage.blob.core.windows.net/fhteamimages/' + match.HomeTeamId + '.png';
-          match.AwayTeamIcon = 'http://fhmainstorage.blob.core.windows.net/fhteamimages/' + match.AwayTeamId + '.png';
-          match.StartTime = util.convertStringToTime(match.StartTime, 'dd MMMM yyyy, hh:mm');
-          return match;
-        });
+        var list = (res.data).map(that.composeMatch);
 
 
         that.setData({
           matchs: list,
           isFetching: false,
-          stepCount: 1,
+          stepCount: 2,
         })
       }
     });
@@ -80,12 +70,7 @@ Page({
       },
       success: function (res) {
         console.log(res.data);
-        var list = (res.data).map(function (match) {
-          match.HomeTeamIcon = 'http://fhmainstorage.blob.core.windows.net/fhteamimages/' + match.HomeTeamId + '.png';
-          match.AwayTeamIcon = 'http://fhmainstorage.blob.core.windows.net/fhteamimages/' + match.AwayTeamId + '.png';
-          match.StartTime = util.convertStringToTime(match.StartTime, 'dd MMMM yyyy, hh:mm');
-          return match;
-        });
+        var list = (res.data).map(that.composeMatch);
         that.setData({
           matchs: that.data.matchs.concat(list),
           stepCount: that.data.stepCount + 1,
@@ -124,5 +109,22 @@ Page({
       isFetching: that.data.isFetching,
     });
     console.log(e);
+  },
+
+  composeMatch: function(match){
+    match.HomeTeamIcon = 'http://fhmainstorage.blob.core.windows.net/fhteamimages/' + match.HomeTeamId + '.png';
+    match.AwayTeamIcon = 'http://fhmainstorage.blob.core.windows.net/fhteamimages/' + match.AwayTeamId + '.png';
+    match.StartTime = util.convertStringToTime(match.StartTime, 'dd MMMM yyyy, hh:mm');
+    var totalPrediction = match.HomePredictions + match.DrawPredictions + match.AwayPredictions;
+    if(totalPrediction == 0){
+			match.HomePredictionsRate = 0;
+			match.DrawPredictionsRate = 0;
+			match.AwayPredictionsRate = 0;
+		}else{
+      match.HomePredictionsRate = (match.HomePredictions * 100 / totalPrediction).toFixed(0);
+		  match.DrawPredictionsRate = (match.DrawPredictions * 100 / totalPrediction).toFixed(0);
+		  match.AwayPredictionsRate = (match.AwayPredictions * 100 / totalPrediction).toFixed(0);
+    }
+    return match;
   }
 })

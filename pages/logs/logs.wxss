@@ -50,10 +50,12 @@
 .row2{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   height: 55rpx;
   border-bottom: 2rpx solid #eeeeee;
+  padding-left: 110rpx;
+  padding-right: 110rpx;
 }
 .row3{
   display: flex;
@@ -65,7 +67,8 @@
 .row4{
   background-color: #003161; 
   align-self: stretch;
-  border-radius: 5rpx; 
+  border-bottom-left-radius: 5rpx;
+  border-bottom-right-radius: 5rpx; 
   height: 75rpx; 
   justify-content: center; 
   align-items: center;
@@ -99,6 +102,7 @@
 .team-icon {
   width: 120rpx; 
   height: 120rpx;
+  margin-bottom: 15rpx;
 }
 .league-text {
   font-family: Roboto;
