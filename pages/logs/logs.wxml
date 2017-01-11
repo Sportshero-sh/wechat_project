@@ -1,83 +1,82 @@
 <!--logs.wxml-->
 <view class="container log-list">
 	<view class="head" hover="{{false}}">
-		<text class="head-text">Sportshero Matches</text>
+		<view class="head-text">Sportshero Matches</view>
 	</view>
 	<block wx:for="{{matchs}}" wx:for-index="index" wx:for-item="match">
 		<view class="log-item" bindtap="enterMatchCenter" id="{{match.Id}}">
 			<view class="row1" >
 				<view class="team-icon-container">
-					<image class="team-icon" mode="aspectFit" src="{{match.HomeTeamIcon}}" />
-					<text class="team-name-text">
+					<image class="team-icon" mode="aspectFit" src="{{match.HomeTeamIcon}}" data-index="{{index}}" binderror="onHomeTeamIconError"/>
+					<view class="team-name-text">
 						{{match.HomeTeamName}}
-					</text>
+					</view>
 				</view>
 				<view  class="vs-text-container">
-					<text class="vs-text">
+					<view class="vs-text">
 						VS
-					</text>
+					</view>
 				</view>
 				<view class="team-icon-container">
-					<image class="team-icon" mode="aspectFit" src="{{match.AwayTeamIcon}}" />
-					<text class="team-name-text">
+					<image class="team-icon" mode="aspectFit" src="{{match.AwayTeamIcon}}" data-index="{{index}}" binderror="onAwayTeamIconError"/>
+					<view class="team-name-text">
 						{{match.AwayTeamName}}
-					</text>
+					</view>
 				</view>
 			</view>			
 			<view class="row2" >
 				<View class="predictionPrecentage">
-					<Text class="prediction-text">
+					<view class="prediction-text">
 						{{match.HomePredictions * 100}} %
-					</Text>
-					<Text class="win-text">
+					</view>
+					<view class="win-text">
 						胜利
-					</Text>
+					</view>
 				</View>
 				<View class="predictionPrecentage">
-					<Text class="prediction-text">
+					<view class="prediction-text">
 						{{match.DrawPredictions * 100}} %
-					</Text>
-					<Text class="win-text">
+					</view>
+					<view class="win-text">
 						平局
-					</Text>
+					</view>
 				</View>
-				<View class="predictionPrecentage">
-					<Text class="prediction-text">
+				<view class="predictionPrecentage">
+					<view class="prediction-text">
 						{{match.AwayPredictions * 100}} %
-					</Text>
-					<Text class="win-text">
+					</view>
+					<view class="win-text">
 						失败
-					</Text>
-				</View>
+					</view>
+				</view>
 			</view>	
 			<view class="row3">
-				<text class="league-text">
+				<view class="league-text">
 					{{match.LeagueName}}
-				</text>
-				<text class="matchtime-text">
+				</view>
+				<view class="matchtime-text">
 					{{match.StartTime}}
-				</text>
+				</view>
 			</view>
 			<view class="row4">
 				<view class="available-predict-container">
 					<view class="available-predict-count-container">
 						<block wx:if="{{match.PredictionsPlayed < match.PredictionsAvailable}}">
-							<text class="light-blue-text">{{match.PredictionsPlayed}}</text>
+							<view class="light-blue-text">{{match.PredictionsPlayed}}</view>
 						</block>
 						<block wx:if="{{match.PredictionsPlayed == match.PredictionsAvailable}}">
-							<text class="red-text">{{match.PredictionsPlayed}} </text>
+							<view class="red-text">{{match.PredictionsPlayed}} </view>
 						</block>
-						<text class="slash">/</text>
-						<text class="red-text">{{match.PredictionsAvailable}}</text>
+						<view class="slash">/</view>
+						<view class="red-text">{{match.PredictionsAvailable}}</view>
 					</view>
-					<text class="red-text">已预测</text>
+					<view class="red-text">已预测</view>
 				</view>
 				<view class="predict-btn-container">
 					<button class="predict-btn">
 						猜 猜 看
 					</button>
-				</view>
-					
+				</view>	
 			</view>
 		</view>	
 	</block>

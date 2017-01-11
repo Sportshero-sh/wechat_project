@@ -109,7 +109,6 @@
   letter-spacing: 0.2rpx;
   text-align: center;
   color: #5b5b5b;
-  padding-bottom: 17rpx;
 }
 .matchtime-text {
   font-family: Roboto;
@@ -120,7 +119,6 @@
   letter-spacing: 0.2rpx;
   text-align: center;
   color: #999999;
-  padding-bottom: 17rpx;
 }
 .separator {
 	height: 2rpx;
@@ -145,12 +143,10 @@
 .prediction-text{
   font-size: 25rpx; 
   color:#002a4e;
-  padding-bottom: 15rpx;
 }
 .win-text{
   font-size: 25rpx; 
   color:#f68a1e;
-  padding-bottom: 15rpx;
 }
 .available-predict-container{
   flex : 1;

@@ -4,13 +4,13 @@ var DataModule = require('../../module/DataModule.js')
 Page({
   data: {
     matchs: [],
-    stepCount: 0,
+    stepCount: 1,
     isFetching: false,
   },
   onLoad: function () {
     var that = this;
     wx.request({
-      url: 'https://fhapi-dev1.cloudapp.net/api/games/popularUpcoming?sportId=1', //仅为示例，并非真实的接口地址
+      url: 'https://fhapi-dev1.cloudapp.net/api/games/upcomingNext?&sportId=1&number=25&step=' + that.data.stepCount, //仅为示例，并非真实的接口地址
       method: 'GET',
       header: {
         'Authorization': 'FH-Token 935b6dfb-e795-48a8-be9c-11bd9e8c89dc'
@@ -24,7 +24,8 @@ Page({
             match.StartTime = util.convertStringToTime(match.StartTime, 'dd MMMM yyyy, hh:mm');
             return match;
           }),
-          stepCount: that.data.stepCount + 1
+          stepCount: that.data.stepCount + 1,
+          isFetching: false,
         })
       }
     });
@@ -37,7 +38,7 @@ Page({
 
     this.setData({ isFetching: true });
     wx.request({
-      url: 'https://fhapi-dev1.cloudapp.net/api/games/popularUpcoming?sportId=1', //仅为示例，并非真实的接口地址
+      url: 'https://fhapi-dev1.cloudapp.net/api/games/upcomingNext?sportId=1&number=25&step=' + that.data.stepCount,
       method: 'GET',
       header: {
         'Authorization': 'FH-Token 935b6dfb-e795-48a8-be9c-11bd9e8c89dc'
@@ -54,13 +55,15 @@ Page({
 
 
         that.setData({
-          matchs: that.data.matchs.concat(list),
+          matchs: list,
           isFetching: false,
+          stepCount: 1,
         })
       }
     });
   },
   onReachBottom: function () {
+    console.log('onReachBottom');
     if (this.data.stepCount == 0)
       return;
 
@@ -70,7 +73,7 @@ Page({
     this.setData({ isFetching: true });
     var that = this;
     wx.request({
-      url: 'https://fhapi-dev1.cloudapp.net/api/games/upcomingNext?sportId=1&step=' + that.data.stepCount, //仅为示例，并非真实的接口地址
+      url: 'https://fhapi-dev1.cloudapp.net/api/games/upcomingNext?sportId=1&number=25&step=' + that.data.stepCount, //仅为示例，并非真实的接口地址
       method: 'GET',
       header: {
         'Authorization': 'FH-Token 935b6dfb-e795-48a8-be9c-11bd9e8c89dc'
@@ -99,7 +102,27 @@ Page({
       url: '../matchcenter/matchcenter?matchID=' + p
     });
   },
-  onTeamIconError: function (e) {
+  onHomeTeamIconError: function (e) {
+    var that = this;
+    var index = e.target.dataset.index;
+    that.data.matchs[index].HomeTeamIcon = 'http://fhmainstorage.blob.core.windows.net/fhteamimages/default-home.png';
+    that.setData({
+      matchs: that.data.matchs,
+      stepCount: that.data.stepCount,
+      isFetching: that.data.isFetching,
+    });
+    console.log(e);
+  },
+
+  onAwayTeamIconError: function (e) {
+    var that = this;
+    var index = e.target.dataset.index;
+    that.data.matchs[index].AwayTeamIcon = 'http://fhmainstorage.blob.core.windows.net/fhteamimages/default-away.png';
+    that.setData({
+      matchs: that.data.matchs,
+      stepCount: that.data.stepCount,
+      isFetching: that.data.isFetching,
+    });
     console.log(e);
   }
 })
