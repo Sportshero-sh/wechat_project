@@ -22,6 +22,14 @@ Page({
           stepCount: that.data.stepCount + 1,
           isFetching: false,
         })
+      },
+      fail : function(res){
+        console.log('fail');
+        console.log(res);
+      },
+      complete : function(res){
+        console.log('complete');
+        console.log(res);
       }
     });
   },
@@ -90,7 +98,7 @@ Page({
   onHomeTeamIconError: function (e) {
     var that = this;
     var index = e.target.dataset.index;
-    that.data.matchs[index].HomeTeamIcon = 'http://fhmainstorage.blob.core.windows.net/fhteamimages/default-home.png';
+    that.data.matchs[index].HomeTeamIcon = 'https://endpoint936063.azureedge.net/fhteamimages/default-home.png';
     that.setData({
       matchs: that.data.matchs,
       stepCount: that.data.stepCount,
@@ -102,7 +110,7 @@ Page({
   onAwayTeamIconError: function (e) {
     var that = this;
     var index = e.target.dataset.index;
-    that.data.matchs[index].AwayTeamIcon = 'http://fhmainstorage.blob.core.windows.net/fhteamimages/default-away.png';
+    that.data.matchs[index].AwayTeamIcon = 'https://endpoint936063.azureedge.net/fhteamimages/default-away.png';
     that.setData({
       matchs: that.data.matchs,
       stepCount: that.data.stepCount,
@@ -112,8 +120,8 @@ Page({
   },
 
   composeMatch: function(match){
-    match.HomeTeamIcon = 'http://fhmainstorage.blob.core.windows.net/fhteamimages/' + match.HomeTeamId + '.png';
-    match.AwayTeamIcon = 'http://fhmainstorage.blob.core.windows.net/fhteamimages/' + match.AwayTeamId + '.png';
+    match.HomeTeamIcon = 'https://endpoint936063.azureedge.net/fhteamimages/' + match.HomeTeamId + '.png';
+    match.AwayTeamIcon = 'https://endpoint936063.azureedge.net/fhteamimages/' + match.AwayTeamId + '.png';
     match.StartTime = util.convertStringToTime(match.StartTime, 'dd MMMM yyyy, hh:mm');
     var totalPrediction = match.HomePredictions + match.DrawPredictions + match.AwayPredictions;
     if(totalPrediction == 0){
@@ -126,5 +134,16 @@ Page({
 		  match.AwayPredictionsRate = (match.AwayPredictions * 100 / totalPrediction).toFixed(0);
     }
     return match;
+  },
+  onPredictClicked:function(event){
+    console.log(event);
+    var that = this;
+    var p = event.currentTarget.id;
+    var index = event.currentTarget.dataset.index;
+    var app = getApp();
+    app.globalData.selectedMatch = that.data.matchs[index];
+    wx.navigateTo({
+      url: '../predict/predict?matchID=' + p
+    });
   }
 })

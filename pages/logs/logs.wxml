@@ -1,9 +1,11 @@
 <!--logs.wxml-->
-<view class="container log-list">
-	<view class="head" hover="{{false}}">
+<view class="container">
+	<image src="../../resources/guide-bg.png" class="background" mode="scaleToFill"></image>
+	<view class="head">
 		<view class="head-text">Sportshero Matches</view>
 	</view>
-	<block wx:for="{{matchs}}" wx:for-index="index" wx:for-item="match">
+	<view class="log-list">
+		<block wx:for="{{matchs}}" wx:for-index="index" wx:for-item="match">
 		<view class="log-item" bindtap="enterMatchCenter" id="{{match.Id}}">
 			<view class="row1" >
 				<view class="team-icon-container">
@@ -73,11 +75,12 @@
 					<view class="red-text">已预测</view>
 				</view>
 				<view class="predict-btn-container">
-					<button class="predict-btn">
+					<button class="predict-btn" bindtap="onPredictClicked" id="{{match.Id}}" data-index="{{index}}">
 						猜 猜 看
 					</button>
 				</view>	
 			</view>
 		</view>	
-	</block>
+		</block>
+	</view>
 </view>

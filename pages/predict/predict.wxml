@@ -1,0 +1,101 @@
+
+<view class="container">
+	<image src="../../resources/guide-bg.png" class="background" mode="scaleToFill"></image>
+	<view class="head">
+		<view class="head-item-container">
+			<image src="../../resources/item-coin.png" class="head-icon-coin"></image>
+			<view class="head-text">10000</view>
+		</view>
+		<view class="head-item-container">
+			<image src="../../resources/item-ticket.png" class="head-icon-ticket"></image>
+			<view class="head-text">4 Tickets</view>
+		</view>
+		<view class="head-item-container">
+			<button class="buy-btn">
+				购买
+			</button>
+		</view>
+	</view>
+	<block wx:if="{{hasOdds}}">
+		<swiper indicator-dots="{{showIndicator}}" autoplay="{{autoPlay}}" current="{{currentPage}}" class="content" bindchange="onPageChanged">
+				<block wx:for="{{odds}}" wx:for-index="index" wx:for-item="odd">
+					<swiper-item class="swiper-item">
+						<view wx:if="{{index == 0}}" class="problem-text" style="margin-top:30rpx;">Which team will win?</view>
+						<view wx:if="{{index == 1}}" class="problem-text" style="margin-top:30rpx;">Will total goals be {{odd.Line}} or more?</view>
+						<block wx:if="{{index == 2}}">
+							<view wx:if="{{odd.Line >= 0}}" class="problem-text" style="margin-top:30rpx;">Will {{match.HomeTeamName}} win by {{odd.Line}} goals or more?</view>
+							<view wx:else class="problem-text" style="margin-top:30rpx;">Will {{match.AwayTeamName}} win by {{-odd.Line}} goals or more?</view>
+						</block>
+						<view class="row1" style="margin-top:30rpx;">
+							<view class="team-icon-container">
+								<image class="team-icon" mode="aspectFit" src="{{match.HomeTeamIcon}}" data-index="{{index}}" />
+								<view class="team-name-text">
+									{{match.HomeTeamName}}
+								</view>
+							</view>
+							<view class="vs-text">
+								VS
+							</view>
+							<view class="team-icon-container">
+								<image class="team-icon" mode="aspectFit" src="{{match.AwayTeamIcon}}" data-index="{{index}}"/>
+								<view class="team-name-text">
+									{{match.AwayTeamName}}
+								</view>
+							</view>
+						</view>
+						<view class="row2" style="margin-top:30rpx;">
+							<view class="exp-text content-left" >Win</view>
+							<view wx:if="{{index==0}}" class="exp-text">Draw</view>
+							<view class="exp-text content-right">Win</view>
+						</view>
+						<view class="row3" style="margin-top:30rpx;">
+							<view class="content-left">
+								<image src="../../resources/item-coin.png" class="head-icon-coin"></image>
+								<view class="head-text">{{odd.odds[0].Odd * 1000}}</view>
+							</view>
+							<view wx:if="{{index==0}}" class="content-center">
+								<image src="../../resources/item-coin.png" class="head-icon-coin"></image>
+								<view class="head-text">{{odd.odds[1].Odd * 1000}}</view>
+							</view>
+							<view class="content-right">
+								<image src="../../resources/item-coin.png" class="head-icon-coin"></image>
+								<view wx:if="{{index==0}}" class="head-text">{{odd.odds[2].Odd * 1000}}</view>
+								<view wx:else class="head-text">{{odd.odds[1].Odd * 1000}}</view>
+							</view>
+						</view>
+						<view class="head-text" style="margin-top:30rpx;">Select your prediction</view>
+						<view class="row4" style="margin-top:30rpx;">
+							<view class="content-left">
+								<view bindtap="onPredictClicked" data-index="{{index}}" data-select="0">
+									<image src="../../resources/predict-select.png" class="head-icon-coin"></image>
+								</view>
+							</view>
+							<view wx:if="{{index==0}}" class="content-center">
+								<view bindtap="onPredictClicked" data-index="{{index}}" data-select="1">
+									<image src="../../resources/predict-select.png" class="head-icon-coin"></image>
+								</view>
+							</view>
+							<view wx:if="{{index==0}}" class="content-right">
+								<view bindtap="onPredictClicked" data-index="{{index}}" data-select="2">
+									<image src="../../resources/predict-select.png" class="head-icon-coin"></image>
+								</view>
+							</view>
+							<view wx:else class="content-right">
+								<view bindtap="onPredictClicked" data-index="{{index}}" data-select="1">
+									<image src="../../resources/predict-select.png" class="head-icon-coin"></image>
+								</view>
+							</view>
+						</view>
+						<view class="row5" style="margin-top:30rpx;">
+							<view class="head-text">Your Stake on this prediction</view>
+							<image src="../../resources/item-coin.png" class="head-icon-coin"></image>
+							<view class="head-text">1000</view>
+						</view>
+					</swiper-item>
+				</block>
+		</swiper>
+	</block>
+	<block wx:else>
+		<view class="head-text">no odds</view>
+	</block>	
+</view>

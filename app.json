@@ -2,7 +2,8 @@
   "pages":[
     "pages/index/index",
     "pages/logs/logs",
-    "pages/matchcenter/matchcenter"
+    "pages/matchcenter/matchcenter",
+    "pages/predict/predict"
   ],
   "window":{
     "backgroundTextStyle":"light",
