@@ -19,7 +19,8 @@ Page({
 			url: 'https://fhapi-dev1.cloudapp.net/api/games/matchCenter?gameId=' + options.matchID + '&includeStatistics=true',
 			method: 'GET',
 			header: {
-				'Authorization': 'FH-Token 935b6dfb-e795-48a8-be9c-11bd9e8c89dc'
+				// 'Authorization': 'FH-Token 935b6dfb-e795-48a8-be9c-11bd9e8c89dc'
+				'Authorization': 'FH-Token ' + PlayerInfo.accessToken,
 			},
 			success: function(res) {
 				console.log(res.data);

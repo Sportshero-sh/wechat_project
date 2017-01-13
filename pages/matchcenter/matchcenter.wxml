@@ -227,4 +227,96 @@
 			</view>
 		</view>
 	</view>
+	<view class="container whiteBG">
+		<view style="border-bottom: 1rpx;">
+			<view>
+				{{GameInformation.HomeTeamName}} Results
+			</view>
+			<view>
+				Last 10 Results Playing Away against
+			</view>
+		</view>
+		<block wx:if="{{true}}">
+			<block wx:for="{{Statistics.LastHomeGames}}" wx:for-item="match">
+				<view class="container" style="align-self:stretch; flex-direction: row;">
+					<view wx:if="{{match.HomeGoals > match.AwayGoals}}">
+						Win
+					</view>
+					<view wx:elif="{{match.HomeGoals == match.AwayGoals}}">
+						Draw
+					</view>
+					<view wx:else>
+						Lost
+					</view>
+					<view class="container" style="flex:1; align-self:stretch; flex-direction: row; align-items:center;">
+						<view style="background-color:#eeeeee; border-radius: 1; width: 35rpx; align-items:center;justify-content:center; height: 35rpx; display: flex;">
+							<view style="font-size: 25rpx; color: #002a4e;display: flex;">
+								{{match.HomeGoals}}
+							</view>
+						</view>
+						<view class="container seperateRow"/>
+						<view style="background-color:#eeeeee; border-radius: 1; width: 35rpx; align-items:center;justify-content:center; height: 35rpx;display: flex;">
+							<view style="font-size: 25rpx; color: #002a4e;display: flex;">
+								{{match.AwayGoals}}
+							</view>
+						</view>
+					</view>
+					<view class="container" style="flex: 3; align-self:stretch; justify-content:flex-start; margin-left: 26rpx">
+						<view style="font-size: 21rpx; color:#5b5b5b">
+							{{match.OpponentTeamName}}
+						</view>
+					</view>
+					<view class="matchtime-text">
+						{{match.StartTime}}
+					</view>
+				</view>
+			</block>
+		</block>
+	</view>
+	<view class="container whiteBG">
+		<view style="border-bottom: 1rpx;">
+			<view>
+				{{GameInformation.AwayTeamName}} Results
+			</view>
+			<view>
+				Last 10 Results Playing Away against
+			</view>
+		</view>
+		<block wx:if="{{true}}">
+			<block wx:for="{{Statistics.LastAwayGames}}" wx:for-item="match">
+				<view class="container" style="align-self:stretch; flex-direction: row;">
+					<view wx:if="{{match.HomeGoals > match.AwayGoals}}">
+						Win
+					</view>
+					<view wx:elif="{{match.HomeGoals == match.AwayGoals}}">
+						Draw
+					</view>
+					<view wx:else>
+						Lost
+					</view>
+					<view class="container" style="flex:1; align-self:stretch; flex-direction: row; align-items:center;">
+						<view style="background-color:#eeeeee; border-radius: 1; width: 35rpx; align-items:center;justify-content:center; height: 35rpx; display: flex;">
+							<view style="font-size: 25rpx; color: #002a4e;display: flex;">
+								{{match.HomeGoals}}
+							</view>
+						</view>
+						<view class="container seperateRow"/>
+						<view style="background-color:#eeeeee; border-radius: 1; width: 35rpx; align-items:center;justify-content:center; height: 35rpx;display: flex;">
+							<view style="font-size: 25rpx; color: #002a4e;display: flex;">
+								{{match.AwayGoals}}
+							</view>
+						</view>
+					</view>
+					<view class="container" style="flex: 3; align-self:stretch; justify-content:flex-start; margin-left: 26rpx">
+						<view style="font-size: 21rpx; color:#5b5b5b">
+							{{match.OpponentTeamName}}
+						</view>
+					</view>
+					<view class="matchtime-text">
+						{{match.StartTime}}
+					</view>
+				</view>
+			</block>
+		</block>
+	</view>
 </view>

@@ -1,6 +1,7 @@
 //logs.js
 var util = require('../../utils/util.js')
-var DataModule = require('../../module/DataModule.js')
+var DataModule = require('../../module/DataModule.js');
+var PlayerInfo = require('../../module/PlayerInfo.js');
 Page({
   data: {
     matchs: [],
@@ -13,8 +14,8 @@ Page({
       url: 'https://fhapi-dev1.cloudapp.net/api/games/upcomingNext?&sportId=1&number=25&step=' + that.data.stepCount, //仅为示例，并非真实的接口地址
       method: 'GET',
       header: {
-      	// 'Authorization': 'FH-Token ' + PlayerInfo.accessToken,
-        'Authorization': 'FH-Token 935b6dfb-e795-48a8-be9c-11bd9e8c89dc'
+      	'Authorization': 'FH-Token ' + PlayerInfo.accessToken,
+        // 'Authorization': 'FH-Token 935b6dfb-e795-48a8-be9c-11bd9e8c89dc'
       },
       success: function (res) {
         console.log(res.data)
@@ -45,8 +46,8 @@ Page({
       url: 'https://fhapi-dev1.cloudapp.net/api/games/upcomingNext?sportId=1&number=25&step=' + 1,
       method: 'GET',
       header: {
-      	// 'Authorization': 'FH-Token ' + PlayerInfo.accessToken,
-        'Authorization': 'FH-Token 935b6dfb-e795-48a8-be9c-11bd9e8c89dc'
+      	'Authorization': 'FH-Token ' + PlayerInfo.accessToken,
+        // 'Authorization': 'FH-Token 935b6dfb-e795-48a8-be9c-11bd9e8c89dc'
       },
       success: function (res) {
         console.log(res.data)
@@ -76,8 +77,8 @@ Page({
       url: 'https://fhapi-dev1.cloudapp.net/api/games/upcomingNext?sportId=1&number=25&step=' + that.data.stepCount, //仅为示例，并非真实的接口地址
       method: 'GET',
       header: {
-      	// 'Authorization': 'FH-Token ' + PlayerInfo.accessToken,
-        'Authorization': 'FH-Token 935b6dfb-e795-48a8-be9c-11bd9e8c89dc'
+      	'Authorization': 'FH-Token ' + PlayerInfo.accessToken,
+        // 'Authorization': 'FH-Token 935b6dfb-e795-48a8-be9c-11bd9e8c89dc'
       },
       success: function (res) {
         console.log(res.data);
