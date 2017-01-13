@@ -117,3 +117,20 @@
   font-size: 28rpx;
   color: #f5f5f5;
 }
+.TextInForm {
+  font-size: 18rpx; 
+  color:#5b5b5b; 
+  justify-content: center;
+  align-items: flex-start;
+  width: 100rpx; 
+  align-self: center;
+  height: 14rpx
+}
+.BarBG {
+  width: 140rpx;
+  height:14rpx; 
+  background-color: #eeeeee; 
+  border-radius: 5rpx;
+  border-width: 1rpx;
+  border-color: #eeeeee; 
+}

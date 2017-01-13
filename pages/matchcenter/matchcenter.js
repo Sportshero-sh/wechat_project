@@ -1,4 +1,5 @@
 var util = require('../../utils/util.js');
+var PlayerInfo = require('../../module/PlayerInfo.js');
 
 Page({
 	data: {
@@ -8,6 +9,9 @@ Page({
 		HomeTeamIcon: '',
 		AwayTeamIcon: '',
 		StartTime: '',
+		HomeTeamForm: null,
+		AwayTeamForm: null,
+		IsInCurrentForm: false,
 	},
 	onLoad:function(options){ 
 		var that = this;
@@ -38,6 +42,104 @@ Page({
 						return match;
 					}),
 				});
+				that.onCurrentLeagueSwitch();
 			}});
 	},
+
+	onCurrentLeagueSwitch:function()
+	{
+		if (this.data.IsInCurrentForm == true)
+		{
+			this.setData(
+				{
+					IsInCurrentForm: false,
+					HomeTeamForm: [this.data.Statistics.LeagueTable[0].NumberOfGamesWonTotal, this.data.Statistics.LeagueTable[0].NumberOfGamesDrawnTotal, this.data.Statistics.LeagueTable[0].NumberOfGamesLostTotal],
+					AwayTeamForm: [this.data.Statistics.LeagueTable[1].NumberOfGamesWonTotal, this.data.Statistics.LeagueTable[1].NumberOfGamesDrawnTotal, this.data.Statistics.LeagueTable[1].NumberOfGamesLostTotal],
+				}
+			);
+		}
+		else
+		{
+			this.setData(
+				{
+					IsInCurrentForm: true,
+					HomeTeamForm: [this.data.Statistics.TeamForm[0].NumberOfGamesWon, this.data.Statistics.TeamForm[0].NumberOfGamesDrawn, this.data.Statistics.TeamForm[0].NumberOfGamesLost],
+					AwayTeamForm: [this.data.Statistics.TeamForm[1].NumberOfGamesWon, this.data.Statistics.TeamForm[1].NumberOfGamesDrawn, this.data.Statistics.TeamForm[1].NumberOfGamesLost],
+				}
+			);
+		}
+	},
+	switchTabsForForm:function(index)
+	{
+		switch (index.currentTarget.id)
+		{
+		case '0':
+			{
+				if (this.data.IsInCurrentForm == true)
+				{
+					this.setData(
+						{
+							HomeTeamForm: [this.data.Statistics.TeamForm[0].NumberOfHomeGamesWon, this.data.Statistics.TeamForm[0].NumberOfHomeGamesDrawn, this.data.Statistics.TeamForm[0].NumberOfHomeGamesLost],
+							AwayTeamForm: [this.data.Statistics.TeamForm[1].NumberOfHomeGamesWon, this.data.Statistics.TeamForm[1].NumberOfHomeGamesDrawn, this.data.Statistics.TeamForm[1].NumberOfHomeGamesLost],
+						}
+					);
+				}
+				else
+				{
+					this.setData(
+						{
+							HomeTeamForm: [this.data.Statistics.LeagueTable[0].NumberOfGamesWonHome, this.data.Statistics.LeagueTable[0].NumberOfGamesDrawnHome, this.data.Statistics.LeagueTable[0].NumberOfGamesLostHome],
+							AwayTeamForm: [this.data.Statistics.LeagueTable[1].NumberOfGamesWonHome, this.data.Statistics.LeagueTable[1].NumberOfGamesDrawnHome, this.data.Statistics.LeagueTable[1].NumberOfGamesLostHome],
+						}
+					);
+				}
+				break;
+			}
+		case '1':
+			{
+				if (this.data.IsInCurrentForm == true)
+				{
+					this.setData(
+						{
+							HomeTeamForm: [this.data.Statistics.TeamForm[0].NumberOfGamesWon, this.data.Statistics.TeamForm[0].NumberOfGamesDrawn, this.data.Statistics.TeamForm[0].NumberOfGamesLost],
+							AwayTeamForm: [this.data.Statistics.TeamForm[1].NumberOfGamesWon, this.data.Statistics.TeamForm[1].NumberOfGamesDrawn, this.data.Statistics.TeamForm[1].NumberOfGamesLost],
+						}
+					);
+				}
+				else
+				{
+					this.setData(
+						{
+							HomeTeamForm: [this.data.Statistics.LeagueTable[0].NumberOfGamesWonTotal, this.data.Statistics.LeagueTable[0].NumberOfGamesDrawnTotal, this.data.Statistics.LeagueTable[0].NumberOfGamesLostTotal],
+							AwayTeamForm: [this.data.Statistics.LeagueTable[1].NumberOfGamesWonTotal, this.data.Statistics.LeagueTable[1].NumberOfGamesDrawnTotal, this.data.Statistics.LeagueTable[1].NumberOfGamesLostTotal],
+						}
+					);
+				}
+				break;
+			}
+		case '2':
+			{
+				if (this.data.IsInCurrentForm == true)
+				{
+					this.setData(
+						{
+							HomeTeamForm: [this.data.Statistics.TeamForm[0].NumberOfAwayGamesWon, this.data.Statistics.TeamForm[0].NumberOfAwayGamesDrawn, this.data.Statistics.TeamForm[0].NumberOfAwayGamesLost],
+							AwayTeamForm: [this.data.Statistics.TeamForm[1].NumberOfAwayGamesWon, this.data.Statistics.TeamForm[1].NumberOfAwayGamesDrawn, this.data.Statistics.TeamForm[1].NumberOfAwayGamesLost],
+						}
+					);
+				}
+				else
+				{
+					this.setData(
+						{
+							HomeTeamForm: [this.data.Statistics.LeagueTable[0].NumberOfGamesWonAway, this.data.Statistics.LeagueTable[0].NumberOfGamesDrawnAway, this.data.Statistics.LeagueTable[0].NumberOfGamesLostAway],
+							AwayTeamForm: [this.data.Statistics.LeagueTable[1].NumberOfGamesWonAway, this.data.Statistics.LeagueTable[1].NumberOfGamesDrawnAway, this.data.Statistics.LeagueTable[1].NumberOfGamesLostAway],
+						}
+					);
+				}
+				break;
+			}
+		}
+	}
+
 });

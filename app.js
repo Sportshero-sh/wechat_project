@@ -1,11 +1,30 @@
 //app.js
+var playerInfo = require('./module/PlayerInfo.js');
+
 App({
-  onLaunch: function () {
-    //调用API从本地缓存中获取数据
-    // var logs = wx.getStorageSync('logs') || []
-    // logs.unshift(Date.now())
-    // wx.setStorageSync('logs', logs)
-  },
+	onLaunch: function () {
+		wx.login({
+			success: function(res) {
+				if (res.code) {
+				//发起网络请求
+				wx.request({
+					url: 'https://test.com/onLogin',
+					data: {
+						code: res.code
+					},
+					method: 'POST',
+					header: {
+					},
+					success: function(res) {
+						playerInfo.accessToken = res.accessToken;
+					},
+				});
+				} else {
+					console.log('获取用户登录态失败！' + res.errMsg);
+				}
+			}
+		});
+	},
   
   globalData:{
     userInfo:null,

@@ -112,7 +112,7 @@ Page({
   getUserInfo:function(app){
     var that = this;
     wx.login({
-      success: function () {
+      success: function (res) {
         app.globalData.hasLogin = true;
         wx.getUserInfo({
           success: function (res) {

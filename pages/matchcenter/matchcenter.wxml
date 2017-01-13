@@ -4,57 +4,57 @@
 		<view class="row1" >
 			<view class="team-icon-container">
 				<image class="team-icon" mode="aspectFit" src="{{HomeTeamIcon}}" />
-				<text class="team-name-text">
+				<view class="team-name-text">
 					{{GameInformation.HomeTeamName}}
-				</text>
+				</view>
 			</view>
 			<view  class="vs-text-container">
-				<text class="vs-text">
+				<view class="vs-text">
 					VS
-				</text>
+				</view>
 			</view>
 			<view class="team-icon-container">
 				<image class="team-icon" mode="aspectFit" src="{{AwayTeamIcon}}" />
-				<text class="team-name-text">
+				<view class="team-name-text">
 					{{GameInformation.AwayTeamName}}
-				</text>
+				</view>
 			</view>
 		</view>	
 		<view class="separator"/>		
 		<view class="row2" >
 			<View class="predictionPrecentage">
-				<Text style="font-size: 25rpx; color:#002a4e;text-align:center;">
+				<view style="font-size: 25rpx; color:#002a4e;text-align:center;">
 					{{GameInformation.HomePredictions * 100}} %
-				</Text>
-				<Text style="font-size: 25rpx; color:#f68a1e;">
+				</view>
+				<view style="font-size: 25rpx; color:#f68a1e;">
 					Win
-				</Text>
+				</view>
 			</View>
 			<View class="predictionPrecentage">
-				<Text style="font-size: 25rpx; color:#002a4e;">
+				<view style="font-size: 25rpx; color:#002a4e;">
 					{{GameInformation.DrawPredictions * 100}} %
-				</Text>
-				<Text style="font-size: 25rpx; color:#f68a1e;">
+				</view>
+				<view style="font-size: 25rpx; color:#f68a1e;">
 					Draw
-				</Text>
+				</view>
 			</View>
 			<View class="predictionPrecentage">
-				<Text style="font-size: 25rpx; color:#002a4e;">
+				<view style="font-size: 25rpx; color:#002a4e;">
 					{{GameInformation.AwayPredictions * 100}} %
-				</Text>
-				<Text style="font-size: 25rpx; color:#f68a1e;">
-					Lose
-				</Text>
+				</view>
+				<view style="font-size: 25rpx; color:#f68a1e;">
+					Win
+				</view>
 			</View>
 		</view>
 		<view class="separator"/>		
 		<view class="row3">
-			<text class="league-text">
+			<view class="league-text">
 				{{GameInformation.LeagueName}}
-			</text>
-			<text class="matchtime-text">
+			</view>
+			<view class="matchtime-text">
 				{{StartTime}}
-			</text>
+			</view>
 		</view>
 		<view style="background-color: #003161; align-self: stretch;border-radius: 5rpx; height: 75rpx; justify-content: center; align-items: center;display: flex;">
 			<button style="width: 200rpx;border-radius: 8rpx;	background-color: #ef5421; margin-top: 5rpx; margin-bottom: 5rpx;font-size:15rpx">
@@ -62,58 +62,169 @@
 			</button>
 		</view>
 	</view>	
-	<text class="container StatisticsText">
+	<view class="container StatisticsText">
 		Statics
-	</text>
+	</view>
 	<view class="container whiteBG">
-		<text style="font-size: 25rpx; align-self:center; color: #002a4e; margin-top: 16.3rps; margin-bottom: 16.3rpx">
+		<view style="font-size: 25rpx; align-self:center; color: #002a4e; margin-top: 16.3rps; margin-bottom: 16.3rpx">
 			Last {{LastGamesAgainst.length}} Meetings
-		</text>
+		</view>
 		<view style="align-self: stretch;">
 				<block wx:for="{{LastGamesAgainst}}" wx:for-item="match">
 					<view style="margin-top:20rpx">
 					<view class="container" style="align-self:stretch; flex-direction: row;">
 						<view class="container" style="flex: 3; align-self:stretch; justify-content:flex-end; margin-right: 26rpx; flex-direction: row;">
-							<text style="font-size: 21rpx; color:#5b5b5b">
+							<view style="font-size: 21rpx; color:#5b5b5b">
 								{{match.HomeTeamName}}
-							</text>
-							<text style="font-size: 21rpx; color:#5b5b5b">
+							</view>
+							<view style="font-size: 21rpx; color:#5b5b5b">
 								by
-							</text>
+							</view>
 						</view>
 						<view class="container" style="flex:1; align-self:stretch; flex-direction: row; align-items:center;">
 							<view style="background-color:#eeeeee; border-radius: 1; width: 35rpx; align-items:center;justify-content:center; height: 35rpx; display: flex;">
-								<text style="font-size: 25rpx; color: #002a4e;display: flex;">
+								<view style="font-size: 25rpx; color: #002a4e;display: flex;">
 									{{match.homeTeamScore}}
-								</text>
+								</view>
 							</view>
 							<view class="container seperateRow"/>
 							<view style="background-color:#eeeeee; border-radius: 1; width: 35rpx; align-items:center;justify-content:center; height: 35rpx;display: flex;">
-								<text style="font-size: 25rpx; color: #002a4e;display: flex;">
+								<view style="font-size: 25rpx; color: #002a4e;display: flex;">
 									{{match.awayTeamScore}}
-								</text>
+								</view>
 							</view>
 						</view>
 						<view class="container" style="flex: 3; align-self:stretch; justify-content:flex-start; margin-left: 26rpx">
-							<text style="font-size: 21rpx; color:#5b5b5b">
+							<view style="font-size: 21rpx; color:#5b5b5b">
 								{{match.AwayTeamName}}
-							</text>
+							</view>
 						</view>
 					</view>
 					<view class="container" style="flex-direction:row; justify-content:center; margin-top: 20rpx; margin-bottom: :20rpx">
-						<text style="font-size: 19rpx; color:#5b5b5b;">
+						<view style="font-size: 19rpx; color:#5b5b5b;">
 							No league information right now, 
-						</text>
-						<text class="matchtime-text">
+						</view>
+						<view class="matchtime-text">
 							{{match.StartTime}}
-						</text>
-						<text style="font-size: 19rpx; color:#44b0d2">
+						</view>
+						<view style="font-size: 19rpx; color:#44b0d2">
 							No location.
-						</text>
+						</view>
 					</view>
 					<view class="separator"/>				
 				</view>
 			</block>
+		</view>
+	</view>
+	<view class="container whiteBG">
+		<view style="font-size: 25rpx; align-self:center; color: #002a4e; margin-top: 16.3rps; margin-bottom: 16.3rpx">
+			Current Form
+		</view>
+		<view class="container" style="align-self:stretch; flex-direction: row; border-bottom: 1; border-color: #eeeeee">
+			<view style="font-size: 21rpx; color:#999999" bindtap="switchTabsForForm" id="0">
+				Home
+			</view>
+			<view style="font-size: 21rpx; color:#999999" bindtap="switchTabsForForm" id="1">
+				Total
+			</view>
+			<view style="font-size: 21rpx; color:#999999" bindtap="switchTabsForForm" id="2">
+				Away
+			</view>
+		</view>
+		<view style="font-size: 18rpx; align-self:center; color: #cccccc; margin-top: 16.3rps; margin-bottom: 16.3rpx">
+			Results on last 10 matches played.
+		</view>
+		<view class="container" style="align-self:stretch; flex-direction: row;justify-content: center">
+			<view >
+				<view class="container" style="align-self:stretch; flex-direction: row;">
+					<view class="container TextInForm">
+						WIN
+					</view>						
+					<view class="container" style="flex-direction: row; width: 140rpx; justify-content: flex-start;">
+						<view class="container BarBG">
+						</view>
+						<view class="container" style="width: {{HomeTeamForm[0] / (HomeTeamForm[0] + HomeTeamForm[1] + HomeTeamForm[2]) * 140}}rpx; height:14rpx; background-color:#003161; margin-left: -140rpx; border-radius: 5rpx">
+						</view>
+					</view>
+					<view class="container" style="font-size: 25rpx; color:#003161; width: 80rpx; align-self: center;">
+						{{HomeTeamForm[0]}}
+					</view>
+				</view>
+				<view class="container" style="align-self:stretch; flex-direction: row;">
+					<view class="container TextInForm">
+						Draw
+					</view>
+					<view class="container" style="flex-direction: row; width: 140rpx; justify-content: flex-start;">
+						<view class="container BarBG">
+						</view>
+						<view class="container" style="width: {{HomeTeamForm[1] / (HomeTeamForm[0] + HomeTeamForm[1] + HomeTeamForm[2]) * 140}}rpx; height:14rpx; background-color:#003161; margin-left: -140rpx; border-radius: 5rpx">
+						</view>
+					</view>
+					<view class="container" style="font-size: 25rpx; color:#003161; width: 80rpx; align-self: center;">
+						{{HomeTeamForm[1]}}
+					</view>
+				</view>
+				<view class="container" style="align-self:stretch; flex-direction: row;">
+					<view class="container TextInForm">
+						Lost
+					</view>
+					<view class="container" style="flex-direction: row; width: 140rpx; justify-content: flex-start;">
+						<view class="container BarBG">
+						</view>
+						<view class="container" style="width: {{HomeTeamForm[2] / (HomeTeamForm[0] + HomeTeamForm[1] + HomeTeamForm[2]) * 140}}rpx; height:14rpx; background-color:#003161; margin-left: -140rpx; border-radius: 5rpx">
+						</view>
+					</view>
+					<view class="container" style="font-size: 25rpx; color:#003161; width: 80rpx; align-self: center;">
+						{{HomeTeamForm[2]}}
+					</view>
+				</view>
+			</view>
+			<view>
+				<view class="container" style="align-self:stretch; flex-direction: row;">				
+					<view class="container" style="font-size: 25rpx; color:#003161; width: 80rpx; align-self: center;">
+						{{AwayTeamForm[0]}}
+					</view>
+					<view class="container" style="flex-direction: row; width: 140rpx; justify-content: flex-start;">
+						<view class="container BarBG">
+						</view>
+						<view class="container" style="width: {{AwayTeamForm[0] / (AwayTeamForm[0] + AwayTeamForm[1] + AwayTeamForm[2]) * 140}}rpx; height:14rpx; background-color:#003161; margin-left: {{0 - AwayTeamForm[0] / (AwayTeamForm[0] + AwayTeamForm[1] + AwayTeamForm[2]) * 140}}rpx; border-radius: 5rpx">
+						</view>
+					</view>
+					<view class="container TextInForm" style="align-items: flex-end;">
+						WIN
+					</view>
+				</view>
+				<view class="container" style="align-self:stretch; flex-direction: row;">				
+					<view class="container" style="font-size: 25rpx; color:#003161; width: 80rpx; align-self: center;">
+						{{AwayTeamForm[1]}}
+					</view>					
+					<view class="container" style="flex-direction: row; width: 140rpx; justify-content: flex-start;">
+						<view class="container BarBG">
+						</view>
+						<view class="container" style="width: {{AwayTeamForm[1] / (AwayTeamForm[0] + AwayTeamForm[1] + AwayTeamForm[2]) * 140}}rpx; height:14rpx; background-color:#003161; margin-left: {{0 - AwayTeamForm[1] / (AwayTeamForm[0] + AwayTeamForm[1] + AwayTeamForm[2]) * 140}}rpx; border-radius: 5rpx">
+						</view>
+					</view>
+					<view class="container TextInForm" style="align-items: flex-end;">
+						Draw
+					</view>
+				</view>
+				<view class="container" style="align-self:stretch; flex-direction: row;">				
+					<view class="container" style="font-size: 25rpx; color:#003161; width: 80rpx; align-self: center;">
+						{{AwayTeamForm[2]}}
+					</view>					
+					<view class="container" style="flex-direction: row; width: 140rpx; justify-content: flex-start;">
+						<view class="container BarBG">
+						</view>
+						<view class="container" style="width: {{AwayTeamForm[2] / (AwayTeamForm[0] + AwayTeamForm[1] + AwayTeamForm[2]) * 140}}rpx; height:14rpx; background-color:#003161; margin-left: {{0 - AwayTeamForm[2] / (AwayTeamForm[0] + AwayTeamForm[1] + AwayTeamForm[2]) * 140}}rpx; border-radius: 5rpx">
+						</view>
+					</view>
+					<view class="container TextInForm" style="align-items:flex-end;">
+						Lost
+					</view>
+				</view>
+			</view>
+			<view>
+			</view>
 		</view>
 	</view>
 </view>
